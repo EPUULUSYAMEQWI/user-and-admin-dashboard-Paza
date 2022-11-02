@@ -11,6 +11,7 @@ import CreatePoll from './CreatePoll';
 import Comments from './Comments'
 import Notifications from './Notifications';
 import Community from './Community';
+import Poll from './Poll';
 
 const Home = () => {
   
@@ -46,6 +47,7 @@ const Home = () => {
               <Route path='/createpoll' element={<CreatePoll /> } />
               <Route path='/notifications' element={<Notifications /> } />
               <Route path='/community' element={<Community /> } />
+              <Route path='/poll' element={<Poll /> } />
 
             </Routes>
           </div>

@@ -7,13 +7,13 @@ import { orderLinks } from '../data/links'
 const Sidebar = () => {
 
   const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-gray-300 text-md m-2 text-white bg-sky-400 text-black';
-  const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md  dark:text-gray-700 dark:hover:text-black hover:bg-light-gray m-2';
+  const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md  dark:text--700 dark:hover:text-black hover:bg-light-gray m-2';
 
   // const [adminLinks, setAdminLinks] = useState([])
 
   const user = {
     name: 'Amekwi',  
-    role: 'admin'
+    role: 'admin',
   }
 
 
@@ -24,7 +24,7 @@ const Sidebar = () => {
 
 
   return (
-    <div className="h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10 bg-slate-200">
+    <div className="h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10 bg-blue-100">
         <div className="flex justify-between items-center">
           <Link to='/'  className='items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900'>
             <SiShopware className='text-black' /> <span className='text-black'>PAZA FORUMS</span>
