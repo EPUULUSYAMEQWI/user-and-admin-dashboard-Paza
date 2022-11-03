@@ -1,14 +1,11 @@
 import png from '../png.png'
 import React, {useState} from 'react'
-// import { useNavigate} from 'react-router-dom';
-
-// import axios from "axios";
-// import { data } from 'autoprefixer';
-
-
-
+import { useNavigate } from 'react-router-dom';
+import { counties } from "kenya";
+import axios from "axios";
 
 const Register = () => {
+    const router = useNavigate()
     const [firstname, setFirstName] = useState('');
     const [lastname, setLastName] = useState('');
     const [neighborhoodassociation, setNeighbourhoodAssociation]= useState('');
@@ -16,44 +13,31 @@ const Register = () => {
     const [county, setCounty] = useState('');
     const [password, setPassword] = useState('');
     const [Confirmpassword, setConfirmPassword] = useState('');
-
-//     const navigate = useNavigate()
-//     useEffect(() =>{
-
-// })
-// const submitForm = () => {
-//     const {first_name, last_name, user_name, password, county, neighbourhood_association} = data
-//     if(first_name && last_name && user_name && password && county && neighbourhood_association) {
-//     //   console.log(data)
-//        axios.post("https://vast-wildwood-07594.herokuapp.com/resident/",data)
-//      .then(response =>{
-//        console.log(data);
-//        navigate('/sign-in')
-//      })
-//      .catch(err =>{
-//        console.log(err);
-//      })
- 
-//     }
-//     else{
-//      console.log('hhhhh')
-//     }
-//  }
- 
-
-
-    // axios.post("https://vast-wildwood-07594.herokuapp.com/resident/,data")
-    // .then(response =>{
-    //   console.log(response);
-    //   navigate('/sign-in')
-    // })
-
-
-
     
-
     const handleSubmit= (e) => {
         e.preventDefault();
+        if(password===Confirmpassword){ 
+            axios.post('https://vast-wildwood-07594.herokuapp.com/api/resident/', {
+                first_name: firstname,
+                last_name: lastname,
+                neighborhood_association: neighborhoodassociation,
+                county: county,
+                password: password,
+                username: username,  
+              })
+              .then(function (response) {
+                console.log(response);
+                router("/dashboard")
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+            
+        }
+        else{
+            alert("password don't match");
+        }
+      
         console.log(firstname);
         console.log(lastname);
         console.log(neighborhoodassociation);

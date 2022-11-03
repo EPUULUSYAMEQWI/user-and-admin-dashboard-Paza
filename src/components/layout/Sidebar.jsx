@@ -15,10 +15,6 @@ const Sidebar = () => {
     name: 'Amekwi',  
     role: 'admin',
   }
-
-
-
-  
   const userLinks = orderLinks.filter(orderLink => orderLink.role === 'user');
   console.log(userLinks)
 

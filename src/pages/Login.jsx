@@ -1,15 +1,36 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 import png from '../png.png'
+import axios from "axios";
+
+
 
 const Login = () => {
+    const router = useNavigate();
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
+    
+    
 
     const handleSubmit= (e) => {
         e.preventDefault();
-        console.log(username);
-        console.log(password);
-    }
+        // console.log(username)
+        // console.log(password)
+        axios.post('https://vast-wildwood-07594.herokuapp.com/api/login/', {
+            username: username,
+            password: password,
+        
+    })
+    .then(function (response) {
+        console.log(response);
+        router("/dashboard")
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+}
+
+
 
 
     return (
@@ -42,7 +63,7 @@ const Login = () => {
                 <input 
                 onChange={event => setPassword(event.target.value)}
                 placeholder='Password'
-                type='LastName'
+                type='Password'
                 required
                     className='outline-none
                     bg-gray-200
