@@ -1,7 +1,7 @@
 import png from '../png.png'
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
-import { counties } from "kenya";
+// import { counties } from "kenya";
 import axios from "axios";
 
 const Register = () => {
@@ -177,7 +177,7 @@ const Register = () => {
                     focus:ring-blue-300' />
 
 <button className='w-1/3 bg-blue-400 pt-2 pb-2 mb-4 rounded-full text-1xl text-white'>
-                 Signin
+                 Signup
             </button>
             
             

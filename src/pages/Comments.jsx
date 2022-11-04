@@ -1,46 +1,44 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Header from "../components/Header";
-import CommentsTile from "../components/notifications.jsx/NotificationsTile";
+import CommentsTile from "../components/comments/CommentsTile";
+import axios from "axios";
 
 const Comments = ()=>{
-    const content ={
-        body: "Seaboard, in concert with the Philip Ndegwa family which holds a 50.93 per cent stake in Unga,",
-        created:"01/3/2023",
-        post: "1",
-        author: "Rehema Nanda",
 
 
+  const [data, setData] = useState({})
+  const fetchdata=()=> {
+    axios.get("https://vast-wildwood-07594.herokuapp.com/api/comments/")
+    .then(res => setData (res))
+    .catch(err => console.log(err));
+
+  }
+
+useEffect(() => {
+  
+  fetchdata()
+  // console.log(data)
+});
+
+const comments = data.data;
+
+console.log(data.data)
+
+    if(data){
+      return(
+          <div className="m-2 md:m-10 p-2 md:p-10 bg-white text-black">
+              <Header title="Comments" category=""/> 
+              {
+                comments && comments.map((comment) => {
+                  return <CommentsTile content={comment} key={comment.created}/>
+                })
+              }  
+          </div>
+      )
+    }else{
+      return null
     }
-    const content1 ={
-      body: "clean energy measures that Congress approved in Democrats' Inflation Reduction Act.",
-      created:"21/3/2023",
-      post: "5",
-      author: "Amekwi Lucy",
 
 
-    }
-    const content2 ={
-      body: " Climate change is here. Beyond doing everything we can to cut emissions and slow the pace of global warming",
-      created:"21/3/2023",
-      post: "6",
-      author: "Amekwi Lucy",
-    }
-
-    return(
-        <div className="m-2 md:m-10 p-2 md:p-10 bg-white">
-            <Header title="Comments" category=""/>
-            <CommentsTile content ={content}/>
-            <CommentsTile content ={content1}/>
-            <CommentsTile content ={content2}/>
-
-
-
-
-            
-
-
-
-        </div>
-    )
 }
 export default Comments

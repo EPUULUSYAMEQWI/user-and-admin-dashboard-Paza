@@ -50,12 +50,12 @@ export const orderLinks = [
             url: 'notifications',
             icon: <GrNotification/>
         },
-        {
-            role:'user',
-            name: 'Community',
-            url: 'community',
-            icon: <RiCommunityLine/>
-        },
+        // {
+        //     role:'user',
+        //     name: 'Community',
+        //     url: 'community',
+        //     icon: <RiCommunityLine/>
+        // },
         {
             role:'admin',
             name: 'Comment',

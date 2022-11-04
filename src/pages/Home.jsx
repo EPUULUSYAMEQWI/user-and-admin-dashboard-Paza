@@ -42,7 +42,7 @@ const Home = () => {
               <Route path='/dashboard' element={<Dashboard /> } />
               <Route path='/forums' element={<Forums /> } />
               <Route path='/feedback' element={<Feedback /> } />
-              <Route path='/comments' element={<Comments /> } />
+              <Route path='/comment' element={<Comments /> } />
               <Route path='/createforums' element={<CreateForums /> } />
               <Route path='/createpoll' element={<CreatePoll /> } />
               <Route path='/notifications' element={<Notifications /> } />
